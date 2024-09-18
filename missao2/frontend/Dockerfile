@@ -1,7 +1,7 @@
 # frontend/Dockerfile
 FROM node:18
 
-WORKDIR /app
+WORKDIR /usr/app
 
 # Copiar os arquivos package.json e yarn.lock
 COPY package.json ./

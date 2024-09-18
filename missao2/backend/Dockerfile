@@ -1,7 +1,7 @@
 # backend/Dockerfile
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /usr/app
 
 # Instalar dependências
 COPY requirements.txt .

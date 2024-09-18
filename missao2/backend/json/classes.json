@@ -1,0 +1,40 @@
+{
+    "turmas": [
+      {
+        "nome": "Matemática - Álgebra Linear",
+        "caminho_imagem_capa": "/imagens/capas/algebra_linear.jpg",
+        "nome_professor": "Prof. João Silva",
+        "ano": 2024,
+        "foto_professor": "/imagens/professores/joao_silva.jpg"
+      },
+      {
+        "nome": "Física - Mecânica Clássica",
+        "caminho_imagem_capa": "/imagens/capas/mecanica_classica.jpg",
+        "nome_professor": "Profª. Maria Oliveira",
+        "ano": 2024,
+        "foto_professor": "/imagens/professores/maria_oliveira.jpg"
+      },
+      {
+        "nome": "Química - Química Orgânica",
+        "caminho_imagem_capa": "/imagens/capas/quimica_organica.jpg",
+        "nome_professor": "Prof. Carlos Souza",
+        "ano": 2023,
+        "foto_professor": "/imagens/professores/carlos_souza.jpg"
+      },
+      {
+        "nome": "História - História do Brasil",
+        "caminho_imagem_capa": "/imagens/capas/historia_brasil.jpg",
+        "nome_professor": "Profª. Ana Costa",
+        "ano": 2024,
+        "foto_professor": "/imagens/professores/ana_costa.jpg"
+      },
+      {
+        "nome": "Geografia - Geografia Física",
+        "caminho_imagem_capa": "/imagens/capas/geografia_fisica.jpg",
+        "nome_professor": "Prof. Ricardo Lima",
+        "ano": 2023,
+        "foto_professor": "/imagens/professores/ricardo_lima.jpg"
+      }
+    ]
+  }
+  
