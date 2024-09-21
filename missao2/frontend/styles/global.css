@@ -1,0 +1,11 @@
+:root {
+    --color-grey: #5f6358;
+    --color-grey-light: grey;
+    --font: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
