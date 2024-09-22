@@ -1,28 +1,32 @@
+import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function MenuLateral({ open }) {
+  const [hover, setHover] = useState(false);
+  const menuOpen = open ? open : hover;
+
   return (
-    <div className={styles.menuLateral}>
+    <div className={styles.menuLateral} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/home.svg"
           alt="home"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Início</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
       </a>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/calendar.svg"
           alt="calendar"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Agenda</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Agenda</p>}
       </a>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/auto_stories.svg"
           alt="auto_stories"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Turmas</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Turmas</p>}
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
@@ -30,7 +34,7 @@ export default function MenuLateral({ open }) {
           src="./imgs/group.svg"
           alt="group"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Estudantes</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
@@ -38,7 +42,7 @@ export default function MenuLateral({ open }) {
           src="./imgs/school.svg"
           alt="school"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
@@ -46,7 +50,7 @@ export default function MenuLateral({ open }) {
           src="./imgs/settings.svg"
           alt="school"
           className={styles.iconMenu} />
-          {open && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
+          {menuOpen && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
       </a>
     </div>
   );
