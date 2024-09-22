@@ -1,0 +1,59 @@
+# Dependências do Node.js
+node_modules/
+.pnp/
+.pnp.js
+
+# Arquivos de compilação e output do Next.js
+.next/
+out/
+
+# Arquivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ambiente local e IDEs
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+build/
+dist/
+
+# Relatórios de cobertura de testes
+coverage/
+
+# Arquivos de cache de ferramentas
+.cache/
+.next/cache/
+
+# Gerenciador de pacotes lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Dependências do VSCode e WebStorm (IDE específicas)
+.vscode/
+.idea/
+
+# Miscellaneous
+*.log
+*.swp
+
+# Docker
+docker-compose.override.yml
+
+# Logs do sistema operacional
+*.log
+*.log.*
+
+# Arquivos criados por processos de linting e formatação
+.eslintcache
+.prettiercache
+
+# Configurações personalizadas que não devem ser compartilhadas
+.env.*
