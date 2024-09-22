@@ -1,15 +1,19 @@
 import styles from "./index.module.css";
 
-export default function Menu() {
+export default function Menu({ open, menuOpen }) {
   return (
     <>
       <header className={styles.menuContainer}>
         <nav className={styles.menuNavbar}>
-          <img
-            className={styles.menuHamburgerIcon}
-            src="./imgs/menu-hamburguer-icon.svg"
-            alt="menu-hamburguer icon"
-          />
+          <button
+            className={styles.btn_hamburger}
+            onClick={() => menuOpen(!open)}>
+            <img
+              className={styles.menuHamburgerIcon}
+              src="./imgs/menu-hamburguer-icon.svg"
+              alt="menu-hamburguer icon"
+            />
+          </button>
           <img
             className={styles.menuClassroomIcon}
             src="./imgs/classroom-logo.svg"

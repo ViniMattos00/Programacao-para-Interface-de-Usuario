@@ -35,3 +35,11 @@
     align-items: center;
     gap: 24px;
 }
+
+.btn_hamburger {
+    background: transparent;
+    border: none;
+    width: 30px;
+    padding: 0;
+    cursor: pointer;
+}
