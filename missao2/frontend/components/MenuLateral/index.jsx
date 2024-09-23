@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css";
 
-export default function MenuLateral({ open }) {
+export default function MenuLateral({ open, turmas }) {
   const [hover, setHover] = useState(false);
   const menuOpen = open ? open : hover;
 
@@ -38,12 +38,42 @@ export default function MenuLateral({ open }) {
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
+        {menuOpen ? 
+          <img 
+            src="./imgs/arrow_down.svg"
+            alt="arrow_down"
+            className={styles.iconSeta} />
+          :
+          <img 
+            src="./imgs/arrow_right.svg"
+            alt="arrow_right"
+            className={styles.iconSeta} />
+        }
         <img 
           src="./imgs/school.svg"
           alt="school"
           className={styles.iconMenu} />
           {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
       </a>
+      {menuOpen && 
+        <>
+          <a href="" className={styles.containerIcon}>
+            <img 
+              src="./imgs/fact_check.svg"
+              alt="fact_check"
+              className={styles.iconMenu} />
+              {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
+          </a>
+          {turmas.length > 1 &&
+            turmas.map(({ nome, corIcon }) => (
+              <a href="" className={styles.containerIcon}>
+                <span className={styles.iconTurma} style={{ backgroundColor: corIcon }}></span>
+                {menuOpen && <p className={styles.descriptionTurma}>{nome}</p>}
+              </a>
+            ))
+          }
+        </>
+      }
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
         <img 

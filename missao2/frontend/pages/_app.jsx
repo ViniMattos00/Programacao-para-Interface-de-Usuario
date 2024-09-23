@@ -6,12 +6,12 @@ import MenuLateral from "../components/MenuLateral";
 
 export default function App() {
   const [open, setOpen] = useState(false);
-console.log(open);
+  const turmas = []
 
   return (
     <>
       <Menu menuOpen={setOpen} open={open} />
-      <MenuLateral open={open} />
+      <MenuLateral open={open} turmas={turmas} />
     </>
   );
 }
