@@ -4,9 +4,10 @@ import styles from "./index.module.css";
 export default function MenuLateral({ open, turmas }) {
   const [hover, setHover] = useState(false);
   const menuOpen = open ? open : hover;
+  const [subMenuOpen, setSubMenu] = useState(!menuOpen);  
 
   return (
-    <div className={styles.menuLateral} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div className={styles.menuLateral} onMouseEnter={() => {setHover(true);setSubMenu(true)}} onMouseLeave={() => {setHover(false); setSubMenu(false)}}>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/home.svg"
@@ -37,8 +38,8 @@ export default function MenuLateral({ open, turmas }) {
           {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
       </a>
       <div className={styles.divider}></div>
-      <a href="" className={styles.containerIcon}>
-        {menuOpen ? 
+      <a className={styles.containerIcon} onClick={() => setSubMenu(!subMenuOpen)} >
+        {subMenuOpen ? 
           <img 
             src="./imgs/arrow_down.svg"
             alt="arrow_down"
@@ -55,7 +56,7 @@ export default function MenuLateral({ open, turmas }) {
           className={styles.iconMenu} />
           {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
       </a>
-      {menuOpen && 
+      {subMenuOpen  && 
         <>
           <a href="" className={styles.containerIcon}>
             <img 
