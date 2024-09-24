@@ -1,40 +1,84 @@
 {
-    "turmas": [
-      {
-        "nome": "Matemática - Álgebra Linear",
-        "caminho_imagem_capa": "/imagens/capas/algebra_linear.jpg",
-        "nome_professor": "Prof. João Silva",
-        "ano": 2024,
-        "foto_professor": "/imagens/professores/joao_silva.jpg"
-      },
-      {
-        "nome": "Física - Mecânica Clássica",
-        "caminho_imagem_capa": "/imagens/capas/mecanica_classica.jpg",
-        "nome_professor": "Profª. Maria Oliveira",
-        "ano": 2024,
-        "foto_professor": "/imagens/professores/maria_oliveira.jpg"
-      },
-      {
-        "nome": "Química - Química Orgânica",
-        "caminho_imagem_capa": "/imagens/capas/quimica_organica.jpg",
-        "nome_professor": "Prof. Carlos Souza",
-        "ano": 2023,
-        "foto_professor": "/imagens/professores/carlos_souza.jpg"
-      },
-      {
-        "nome": "História - História do Brasil",
-        "caminho_imagem_capa": "/imagens/capas/historia_brasil.jpg",
-        "nome_professor": "Profª. Ana Costa",
-        "ano": 2024,
-        "foto_professor": "/imagens/professores/ana_costa.jpg"
-      },
-      {
-        "nome": "Geografia - Geografia Física",
-        "caminho_imagem_capa": "/imagens/capas/geografia_fisica.jpg",
-        "nome_professor": "Prof. Ricardo Lima",
-        "ano": 2023,
-        "foto_professor": "/imagens/professores/ricardo_lima.jpg"
-      }
-    ]
-  }
-  
+  "professores": [
+    {
+      "nome": "Dr. Squarepants",
+      "foto": "https://media.tenor.com/CfehHzxZMwAAAAAe/nerd-spongebob-nerd.png",
+      "materias": [
+        {
+          "titulo": "Algoritmos quadraticos",
+          "foto_capa": "https://www.mundojs.com.br/wp-content/uploads/2018/02/algorithms.png",
+          "cor": "#bbb200"
+        },
+        {
+          "titulo": "Cubo de dados",
+          "foto_capa": "https://blog.naveenchandra.co.in/wp-content/uploads/2023/09/Online-Analytical-Processing.png",
+          "cor": "#fff758"
+        }
+      ]
+    },
+    {
+      "nome": "Dr. Mario",
+      "foto": "https://preview.redd.it/dr-mario-s%C3%B3-que-jojo-v0-58vasef8h91d1.jpeg?width=1171&format=pjpg&auto=webp&s=016b3c4e6f4e73b05b069de0a32bcd76e3ceaadf",
+      "materias": [
+        {
+          "titulo": "Programação Orientada a PowerUps",
+          "foto_capa": "https://academiatech.s3.amazonaws.com/wp-content/uploads/2023/03/ilustracao-notebook-30032023-1024x576.webp",
+          "cor": "#ff3f39"
+        },
+        {
+          "titulo": "Analize de Blocos",
+          "foto_capa": "https://example.com/capa_sistemas_operacionais.jpg",
+          "cor": "#3f52ff"
+        }
+      ]
+    },
+    {
+      "nome": "Dra. Beatriz Souza",
+      "foto": "https://example.com/foto_beatriz_souza.jpg",
+      "materias": [
+        {
+          "titulo": "Banco de Dados",
+          "foto_capa": "https://example.com/capa_banco_dados.jpg",
+          "cor": "#F7CAC9"
+        },
+        {
+          "titulo": "Redes de Computadores",
+          "foto_capa": "https://example.com/capa_redes_computadores.jpg",
+          "cor": "#92A8D1"
+        }
+      ]
+    },
+    {
+      "nome": "Prof. João Mendes",
+      "foto": "https://example.com/foto_joao_mendes.jpg",
+      "materias": [
+        {
+          "titulo": "Engenharia de Software",
+          "foto_capa": "https://example.com/capa_engenharia_software.jpg",
+          "cor": "#034F84"
+        },
+        {
+          "titulo": "Computação Gráfica",
+          "foto_capa": "https://example.com/capa_computacao_grafica.jpg",
+          "cor": "#F7786B"
+        }
+      ]
+    },
+    {
+      "nome": "Dra. Marina Pereira",
+      "foto": "https://example.com/foto_marina_pereira.jpg",
+      "materias": [
+        {
+          "titulo": "Inteligência Artificial",
+          "foto_capa": "https://example.com/capa_inteligencia_artificial.jpg",
+          "cor": "#DE6FA1"
+        },
+        {
+          "titulo": "Aprendizado de Máquina",
+          "foto_capa": "https://example.com/capa_aprendizado_maquina.jpg",
+          "cor": "#45B8AC"
+        }
+      ]
+    }
+  ]
+}
