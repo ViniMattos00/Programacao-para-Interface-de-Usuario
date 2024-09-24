@@ -5,8 +5,8 @@ export default function Modal({ setOpenModal }) {
   const [value, setValue] = useState('');
 
   return (
-    <div className={styles.containerModal} >
-      <div className={styles.modal}>
+    <div className={styles.containerModal} onClick={() => setOpenModal(false)}>
+      <div className={styles.modal} onClick={(event) => event.stopPropagation()}>
         <div className={styles.modalHeader}>Participar da turma</div>
         <div className={styles.modalBody}>
           <div className={`${styles.containerInput} ${styles.border}`}>
