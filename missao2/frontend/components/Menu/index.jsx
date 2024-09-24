@@ -2,8 +2,7 @@ import styles from "./index.module.css";
 
 export default function Menu({ open, menuOpen, setOpenModal }) {
   return (
-    <>
-      <header className={styles.menuContainer}>
+    <header className={styles.menuContainer}>
         <nav className={styles.menuNavbar}>
           <button
             className={styles.btn_hamburger}
@@ -43,6 +42,5 @@ export default function Menu({ open, menuOpen, setOpenModal }) {
           />
         </div>
       </header>
-    </>
   );
 }

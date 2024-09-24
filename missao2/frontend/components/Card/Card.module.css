@@ -1,0 +1,32 @@
+.cardContainer {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  margin: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardContent {
+  padding: 16px;
+}
+
+.cardTitle {
+  font-size: 1.5em;
+  margin: 0;
+  color: #333;
+}
+
+.cardDescription {
+  font-size: 1em;
+  color: #666;
+  margin-top: 8px;
+}
