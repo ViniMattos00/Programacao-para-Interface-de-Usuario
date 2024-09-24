@@ -13,7 +13,7 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/");
+        const response = await fetch("http://localhost:5000/get_classes");
         if (!response.ok) throw new Error("Erro ao buscar dados");
         const data = await response.json();
         // Extrair todas as matérias de todos os professores
@@ -32,9 +32,10 @@ export default function App() {
       <Menu menuOpen={setOpen} open={open} setOpenModal={setOpenModal} />
       <MenuLateral open={open} turmas={turmas} />
       {openModal && <Modal setOpenModal={setOpenModal} />}
-      <div >
+      <div className="cards">
         {turmas.map((materia) => (
           <Card
+            
             key={materia.id}
             title={materia.titulo}
             imageUrl={materia.fotoCapa}
