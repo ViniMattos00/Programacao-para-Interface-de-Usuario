@@ -55,6 +55,7 @@ export default function MenuLateral({ open, turmas }) {
           alt="school"
           className={styles.iconMenu} />
           {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
+            
       </a>
       {subMenuOpen  && 
         <>
@@ -84,5 +85,6 @@ export default function MenuLateral({ open, turmas }) {
           {menuOpen && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
       </a>
     </div>
+    
   );
 }
