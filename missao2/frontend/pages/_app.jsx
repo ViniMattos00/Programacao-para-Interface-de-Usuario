@@ -6,7 +6,7 @@ import MenuLateral from "../components/MenuLateral";
 
 export default function App() {
   const [open, setOpen] = useState(false);
-  const turmas = []
+  const turmas = [];
 
   return (
     <>
