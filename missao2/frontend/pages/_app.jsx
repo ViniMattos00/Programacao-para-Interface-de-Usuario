@@ -9,6 +9,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [turmas, setTurmas] = useState([]);
+  const [codigosTurmas, setCodigosTurmas] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,8 +17,13 @@ export default function App() {
         const response = await fetch("http://localhost:5000/get_classes");
         if (!response.ok) throw new Error("Erro ao buscar dados");
         const data = await response.json();
-        // Extrair todas as matérias de todos os professores
-        const allMaterias = data.professores.flatMap(professor => professor.materias);
+        const allMaterias = data.professores.flatMap(professor =>
+          professor.materias.map(materia => ({
+            ...materia,
+            professorNome: professor.nome,
+            professorFoto: professor.foto
+          }))
+        );
         setTurmas(allMaterias);
       } catch (err) {
         console.error(err.message);
@@ -27,19 +33,31 @@ export default function App() {
     fetchData();
   }, []);
 
+  const turmasFiltradas = turmas.filter(turma => codigosTurmas.includes(turma.id));
+
+  const handleJoin = (codigo) => {
+    setCodigosTurmas(prevCodigos => {
+      if (!prevCodigos.includes(codigo)) {
+        return [...prevCodigos, codigo];
+      }
+      return prevCodigos;
+    });
+  };
+
   return (
     <>
       <Menu menuOpen={setOpen} open={open} setOpenModal={setOpenModal} />
       <MenuLateral open={open} turmas={turmas} />
-      {openModal && <Modal setOpenModal={setOpenModal} />}
+      {openModal && <Modal setOpenModal={setOpenModal} onJoin={handleJoin} />}
       <div className="cards">
-        {turmas.map((materia) => (
+        {turmasFiltradas.map((materia) => (
           <Card
-            
             key={materia.id}
             title={materia.titulo}
             imageUrl={materia.fotoCapa}
-            description={materia.titulo} // Pode adicionar uma descrição mais detalhada se disponível
+            description={materia.titulo}
+            professorName={materia.professorNome}
+            professorPhoto={materia.professorFoto}
           />
         ))}
       </div>

@@ -1,8 +1,16 @@
 import { useState } from "react";
 import styles from "./index.module.css";
 
-export default function Modal({ setOpenModal }) {
+export default function Modal({ setOpenModal, onJoin }) {
   const [value, setValue] = useState('');
+
+  const handleJoin = () => {
+    if (value) {
+      onJoin(value);
+      setValue('');
+      setOpenModal(false);
+    }
+  };
 
   return (
     <div className={styles.containerModal} onClick={() => setOpenModal(false)}>
@@ -12,7 +20,13 @@ export default function Modal({ setOpenModal }) {
           <div className={`${styles.containerInput} ${styles.border}`}>
             <label htmlFor="codTurma">Código da turma:</label>
             <span>Peça para seu professor o código da turma e digite-o aqui.</span>
-            <input name="codTurma" type="text" placeholder="Código da turma:" value={value} onChange={(event) => setValue(event.target.value)} />
+            <input
+              name="codTurma"
+              type="text"
+              placeholder="Código da turma:"
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+            />
           </div>
           <div className={styles.containerInput}>
             Para fazer login com o código da turma
@@ -25,7 +39,7 @@ export default function Modal({ setOpenModal }) {
         </div>
         <div className={styles.modalFooter}>
           <button className={styles.btn} onClick={() => setOpenModal(false)}>Cancelar</button>
-          <button className={styles.btn} onClick={() => setOpenModal(false)} disabled={!value} >Participar</button>
+          <button className={styles.btn} onClick={handleJoin} disabled={!value}>Participar</button>
         </div>
       </div>
     </div>

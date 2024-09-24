@@ -10,6 +10,14 @@ body {
     box-sizing: border-box;
 }
 
+/* .cards {
+
+} */
+/* global.css ou no arquivo CSS onde os cards são utilizados */
 .cards {
+    display: flex;
     margin-left: 6%;
-}
+    flex-wrap: wrap; /* Permite que os cards se movam para a linha seguinte */
+    gap: 10px; /* Espaçamento entre os cards */
+  }
+  

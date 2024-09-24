@@ -3,31 +3,35 @@ import styles from "./index.module.css";
 
 export default function MenuLateral({ open, turmas }) {
   const [hover, setHover] = useState(false);
-  const menuOpen = open ? open : hover;
+  const menuOpen = open || hover; // Corrigido para usar o operador || para melhor legibilidade
   const [subMenuOpen, setSubMenu] = useState(!menuOpen);  
 
   return (
-    <div className={styles.menuLateral} onMouseEnter={() => {setHover(true);setSubMenu(true)}} onMouseLeave={() => {setHover(false); setSubMenu(false)}}>
+    <div
+      className={styles.menuLateral}
+      onMouseEnter={() => { setHover(true); setSubMenu(true); }}
+      onMouseLeave={() => { setHover(false); setSubMenu(false); }}
+    >
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/home.svg"
           alt="home"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
+        {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
       </a>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/calendar.svg"
           alt="calendar"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Agenda</p>}
+        {menuOpen && <p className={styles.descriptionTurma}>Agenda</p>}
       </a>
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/auto_stories.svg"
           alt="auto_stories"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Turmas</p>}
+        {menuOpen && <p className={styles.descriptionTurma}>Turmas</p>}
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
@@ -35,10 +39,13 @@ export default function MenuLateral({ open, turmas }) {
           src="./imgs/group.svg"
           alt="group"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
+        {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
       </a>
       <div className={styles.divider}></div>
-      <a className={styles.containerIcon} onClick={() => setSubMenu(!subMenuOpen)} >
+      <a 
+        className={styles.containerIcon} 
+        onClick={() => setSubMenu(!subMenuOpen)} 
+      >
         {subMenuOpen ? 
           <img 
             src="./imgs/arrow_down.svg"
@@ -54,21 +61,20 @@ export default function MenuLateral({ open, turmas }) {
           src="./imgs/school.svg"
           alt="school"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
-            
+        {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
       </a>
-      {subMenuOpen  && 
+      {subMenuOpen && 
         <>
           <a href="" className={styles.containerIcon}>
             <img 
               src="./imgs/fact_check.svg"
               alt="fact_check"
               className={styles.iconMenu} />
-              {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
+            {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
           </a>
-          {turmas.length > 1 &&
+          {turmas.length > 0 && // Corrigido para verificar se há turmas
             turmas.map(({ nome, corIcon }) => (
-              <a href="" className={styles.containerIcon}>
+              <a href="" className={styles.containerIcon} key={nome}>
                 <span className={styles.iconTurma} style={{ backgroundColor: corIcon }}></span>
                 {menuOpen && <p className={styles.descriptionTurma}>{nome}</p>}
               </a>
@@ -80,11 +86,10 @@ export default function MenuLateral({ open, turmas }) {
       <a href="" className={styles.containerIcon}>
         <img 
           src="./imgs/settings.svg"
-          alt="school"
+          alt="settings"
           className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
+        {menuOpen && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
       </a>
     </div>
-    
   );
 }

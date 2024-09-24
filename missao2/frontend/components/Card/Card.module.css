@@ -1,32 +1,51 @@
+/* Card.module.css */
 .cardContainer {
-  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 300px;
-  margin: 16px;
-  font-family: Arial, sans-serif;
+  margin: 10px;
+  width: 300px; /* Define uma largura fixa para os cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .cardImage {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 180px; /* Ajusta a altura da imagem */
+  object-fit: cover;
 }
 
 .cardContent {
-  padding: 16px;
+  padding: 15px;
+  flex: 1;
 }
 
 .cardTitle {
-  font-size: 1.5em;
+  font-size: 18px;
   margin: 0;
-  color: #333;
 }
 
 .cardDescription {
-  font-size: 1em;
-  color: #666;
-  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.professorInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.professorPhoto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.professorName {
+  font-size: 14px;
+  font-weight: bold;
 }
