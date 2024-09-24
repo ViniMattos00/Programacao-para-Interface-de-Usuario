@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 
-export default function Menu({ open, menuOpen }) {
+export default function Menu({ open, menuOpen, setOpenModal }) {
   return (
     <>
       <header className={styles.menuContainer}>
@@ -22,11 +22,15 @@ export default function Menu({ open, menuOpen }) {
           <t1 className={styles.menuTitle}>Google Sala de Aula</t1>
         </nav>
         <div className={styles.menuUser}>
-          <img
-            className={styles.menuAddIcon}
-            src="./imgs/add-icon.svg"
-            alt="add icon"
-          />
+          <button
+            className={styles.btn_hamburger}
+            onClick={() => setOpenModal(true)}>
+            <img
+              className={styles.menuAddIcon}
+              src="./imgs/add-icon.svg"
+              alt="add icon"
+            />
+          </button>
           <img
             className={styles.menuAppsIcon}
             src="./imgs/apps-icon.svg"
