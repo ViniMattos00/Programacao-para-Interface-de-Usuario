@@ -1,8 +1,7 @@
 
 
 .cardContainer{
-    margin-left: 100px;
-    width: 300px;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
@@ -38,7 +37,8 @@
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background-color: white
+    background-color: white;
+    border: 1px solid #ccc;
 }
 
 .cardBody{

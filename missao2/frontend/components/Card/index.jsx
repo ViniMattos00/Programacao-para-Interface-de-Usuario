@@ -1,12 +1,12 @@
 import styles from "./index.module.css";
 
-export default function Card() {
+export default function Card({ nome, descricao = '', urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' }) {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <h2 className={styles.cardTitle}>teste</h2>
-        <p className={styles.cardDescription}>teste</p>
-        <img className={styles.cardImage} src="" alt="" />
+        <h2 className={styles.cardTitle}>{nome}</h2>
+        <p className={styles.cardDescription}>{descricao}</p>
+        <img className={styles.cardImage} src={urlImg} alt="Foto usuário" />
       </div>
       <div className={styles.cardBody}></div>
       <div className={styles.cardFooter}>

@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 export default function Menu({ open, menuOpen, setOpenModal }) {
   return (
     <>
+      <div className={styles.header}></div>
       <header className={styles.menuContainer}>
         <nav className={styles.menuNavbar}>
           <button
