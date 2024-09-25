@@ -1,17 +1,18 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 import json
+import uuid
 from flask_cors import CORS
 
-
 app = Flask(__name__)
-
 CORS(app)
-# Defina o caminho para a pasta 'json' e o arquivo 'classes.json'
+
+# Defina o caminho para a pasta 'json' e os arquivos 'classes.json' e 'turmas.json'
 json_folder = os.path.join(os.getcwd(), 'json')
 json_file = os.path.join(json_folder, 'classes.json')
 json_turmas = os.path.join(json_folder, 'turmas.json')
 
+# Pasta onde serão salvas as novas classes
 new_classes_folder = os.path.join(json_folder, 'new_classes')
 
 # Crie a pasta 'new_classes' se não existir
@@ -42,15 +43,18 @@ def get_turmas():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
 @app.route('/receive_data', methods=['POST'])
 def receive_data():
     try:
+        # Receber o JSON enviado na requisição POST
         data = request.get_json()
-        
-        # Gerar um nome de arquivo único para evitar sobrescrita
+
+        # Gerar um nome de arquivo único usando UUID
         unique_filename = f"{uuid.uuid4()}.json"
         file_path = os.path.join(new_classes_folder, unique_filename)
         
+        # Salvar os dados no arquivo
         with open(file_path, 'w') as file:
             json.dump(data, file, indent=4)
         
@@ -58,5 +62,7 @@ def receive_data():
         return jsonify({'message': 'Dados recebidos e salvos com sucesso!', 'filename': unique_filename}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     app.run(debug=True)
