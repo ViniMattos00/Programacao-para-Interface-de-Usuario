@@ -20,7 +20,8 @@ def get_classes():
         return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
+
+
 @app.route('/get_turmas', methods=['GET'])
 def get_turmas():
     try:
@@ -31,6 +32,7 @@ def get_turmas():
         return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
