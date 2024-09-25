@@ -12,6 +12,12 @@ json_folder = os.path.join(os.getcwd(), 'json')
 json_file = os.path.join(json_folder, 'classes.json')
 json_turmas = os.path.join(json_folder, 'turmas.json')
 
+new_classes_folder = os.path.join(json_folder, 'new_classes')
+
+# Crie a pasta 'new_classes' se não existir
+if not os.path.exists(new_classes_folder):
+    os.makedirs(new_classes_folder)
+
 
 @app.route('/get_classes', methods=['GET'])
 def get_classes():
