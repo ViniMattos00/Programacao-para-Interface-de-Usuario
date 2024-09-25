@@ -11,12 +11,22 @@ export default function App() {
   const [openModal, setOpenModal] = useState(false);
   const [professores, setProfessores] = useState([]);
   const [disciplinas, setDisciplinas] = useState([]);
+  const backendAddress = "http://localhost:5000/"
 
   useEffect(() => {
     const fetchProfessores = async () => {
       try {
-        const response = await fetch("http://localhost:5000/get_classes");
+        console.log("Requesting Classes");
+        // Faz uma requisição para pegar o Json das turmas para o localhost
+        const response = await fetch(backendAddress+"get_classes");
+
+        // Caso retorne erro, cai pro catch
+        if (!response.ok) {
+          throw new Error('Request not working');
+        }
+
         const data = await response.json();
+      
         setProfessores(data);
 
         // Transformar o JSON em uma lista de disciplinas (matérias)

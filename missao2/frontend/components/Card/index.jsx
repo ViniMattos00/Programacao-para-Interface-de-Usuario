@@ -14,8 +14,6 @@ export default function Card({
         <p className={styles.cardDescription}>{descricao}</p> {/* Nome do professor */}
         <img className={styles.cardImage} src={fotoProfessor} alt="Foto do professor" /> {/* Foto do professor */}
         <img className={styles.cardCoverImage} src={urlImg} alt="Imagem da matéria" /> 
-
-
       </div>
       <div className={styles.cardBody}>
         {/* Imagem da matéria (foto de capa) */}

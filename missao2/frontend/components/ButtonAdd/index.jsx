@@ -6,7 +6,8 @@ export default function ButtonAdd() {
 
   const handleButtonClick = async () => {
     try {
-      const response = await fetch("http://localhost:5000/receive_data", {
+      console.log("Adding a new class");
+      const response = await fetch(backendAddress+"receive_data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -16,6 +17,7 @@ export default function ButtonAdd() {
 
       if (response.ok) {
         const result = await response.json();
+        console.log("Class Added")
         console.log("success:", result);
       } else {
         console.error("error:", response.statusText);
