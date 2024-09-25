@@ -66,7 +66,7 @@ export default function App() {
                 />
               )
             )}
-            <ButtonAdd />
+            <ButtonAdd backendAddress={backendAddress} />
           </div>
         ) : (
           <div className="mensagemSmTurma">

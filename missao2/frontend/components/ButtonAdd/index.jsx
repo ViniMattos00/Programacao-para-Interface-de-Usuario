@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
 
-export default function ButtonAdd() {
+export default function ButtonAdd({ backendAddress }) {
   const [data, setData] = useState({ message: "hello, server!" });
 
   const handleButtonClick = async () => {
@@ -28,14 +28,12 @@ export default function ButtonAdd() {
   };
 
   return (
-    <div className={styles.buttonContainer}>
-      <button className={styles.addNewCardButton} onClick={handleButtonClick}>
-        <img
-          className={styles.addNewCardButtonImg}
-          src="./imgs/add-icon.svg"
-          alt="add icon"
-        />
-      </button>
-    </div>
+    <button className={styles.addNewCardButton} onClick={handleButtonClick}>
+      <img
+        className={styles.addNewCardButtonImg}
+        src="./imgs/add-icon.svg"
+        alt="add icon"
+      />
+    </button>
   );
 }

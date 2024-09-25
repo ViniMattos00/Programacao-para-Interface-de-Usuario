@@ -1,14 +1,17 @@
-.buttonContainer{
-    /* position: absolute;
-    margin: 0 auto; */
+.addNewCardButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    height: 300px;
+    cursor: pointer;
+    background-color: #ececec;
 }
 
-.addNewCardButton{
-    background-color: var(--color-green);
-    border: none;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
+.addNewCardButton:hover {
+    background-color: #ccc;
 }
 
 .addNewCardButtonImg{
