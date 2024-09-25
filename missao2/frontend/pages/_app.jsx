@@ -4,6 +4,7 @@ import Menu from "../components/Menu";
 import MenuLateral from "../components/MenuLateral";
 import Modal from "../components/Modal";
 import Card from "../components/Card";
+import ButtonAdd from "../components/ButtonAdd"; // Importing ButtonAdd
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -36,12 +37,19 @@ export default function App() {
   }, []);
 
   return (
+
     <>
+
+
       <Menu menuOpen={setOpen} open={open} setOpenModal={setOpenModal} />
       <div className="container">
+
         <MenuLateral open={open} turmas={disciplinas} />
+
         {disciplinas.length > 0 ? (
+
           <div className="containerCards">
+
             {disciplinas.map(
               ({ id, titulo, professor, fotoCapa, fotoProfessor, corIcon }) => (
                 <Card
@@ -54,7 +62,10 @@ export default function App() {
                 />
               )
             )}
+            <ButtonAdd />
+
           </div>
+
         ) : (
           <div className="mensagemSmTurma">
             <img
@@ -64,8 +75,11 @@ export default function App() {
             <p className="mensagem">Nenhuma turma encontrada</p>
           </div>
         )}
+
+
       </div>
       {openModal && <Modal setOpenModal={setOpenModal} />}
+
     </>
   );
 }
