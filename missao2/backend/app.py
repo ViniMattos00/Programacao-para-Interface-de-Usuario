@@ -1,9 +1,12 @@
 from flask import Flask, jsonify
 import os
 import json
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 
+CORS(app)
 # Defina o caminho para a pasta 'json' e o arquivo 'classes.json'
 json_folder = os.path.join(os.getcwd(), 'json')
 json_file = os.path.join(json_folder, 'classes.json')
