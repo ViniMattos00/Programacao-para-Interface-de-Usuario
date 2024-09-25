@@ -24,7 +24,11 @@ export default function MenuLateral({ open, turmas }) {
           alt="home"
           className={styles.iconMenu + " " + styles.iconActive}
         />
-        {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
+        {menuOpen && (
+          <p className={styles.descriptionTurma + " " + styles.pActive}>
+            Início
+          </p>
+        )}
       </a>
       <a href="" className={styles.containerIcon}>
         <img
@@ -99,9 +103,7 @@ export default function MenuLateral({ open, turmas }) {
           alt="school"
           className={styles.iconMenu}
         />
-        {menuOpen && (
-          <p className={styles.descriptionTurma}>Turmas Arquivadas</p>
-        )}
+        {menuOpen && <p className={styles.descriptionTurma}>Configurações</p>}
       </a>
     </div>
   );

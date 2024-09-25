@@ -61,3 +61,7 @@
     box-shadow: -1.5rem 0 0 0 var(--color-blue);
     padding: 5px 10px 5px 0px;
 }
+
+.pActive{
+    padding-left: 0.5rem;
+}
