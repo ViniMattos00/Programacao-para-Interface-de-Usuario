@@ -4,8 +4,7 @@ export default function Card({
   nome,
   descricao = '',
   fotoProfessor = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png', // Imagem do professor
-  urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png', // Imagem da matéria (foto de capa)
-  corIcon = '#000' // Cor do ícone
+  urlImg = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png', // Imagem da matéria (foto de capa)  corIcon = '#000' // Cor do ícone
 }) {
   return (
     <div className={styles.cardContainer}>
@@ -13,7 +12,6 @@ export default function Card({
         <h2 className={styles.cardTitle}>{nome}</h2> {/* Nome da matéria */}
         <p className={styles.cardDescription}>{descricao}</p> {/* Nome do professor */}
         <img className={styles.cardImage} src={fotoProfessor} alt="Foto do professor" /> {/* Foto do professor */}
-        <img className={styles.cardCoverImage} src={urlImg} alt="Imagem da matéria" /> 
       </div>
       <div className={styles.cardBody}>
         {/* Imagem da matéria (foto de capa) */}
@@ -23,7 +21,6 @@ export default function Card({
           className={styles.trendingIcon}
           src="./imgs/trending_icon.svg"
           alt="trending icon"
-          style={{ backgroundColor: corIcon }} // Aplicar a cor do ícone
         />
         <img
           className={styles.folderIcon}

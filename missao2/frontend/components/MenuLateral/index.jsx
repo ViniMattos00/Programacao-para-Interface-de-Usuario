@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 export default function MenuLateral({ open, turmas }) {
   const [hover, setHover] = useState(false);
   const menuOpen = open ? open : hover;
-  const [subMenuOpen, setSubMenu] = useState(!menuOpen);
+  const [subMenuOpen, setSubMenu] = useState(menuOpen);
 
   return (
     <div
@@ -85,13 +85,13 @@ export default function MenuLateral({ open, turmas }) {
             {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
           </a>
           {turmas.length > 0 &&
-            turmas.map(({ nome, corIcon }, index) => (
+            turmas.map(({ titulo, corIcon }, index) => (
               <a href="" className={styles.containerIcon} key={index}>
                 <span
                   className={styles.iconTurma}
                   style={{ backgroundColor: corIcon }}
                 ></span>
-                {menuOpen && <p className={styles.descriptionTurma}>{nome}</p>}
+                {menuOpen && <p className={styles.descriptionTurma}>{titulo}</p>}
               </a>
             ))}
         </>

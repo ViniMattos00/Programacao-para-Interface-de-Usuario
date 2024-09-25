@@ -26,9 +26,15 @@
 
 .cardTitle{
     margin: 0;
-    font-size: 1.375rem;
-    font-family: var(--font);
-    font-weight: 200;
+  font-size: 1.375rem;
+  font-family: var(--font);
+  font-weight: 200;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  width: 90%;
+  direction: ltr;
+  white-space: nowrap;
 }
 
 .cardDescription{
