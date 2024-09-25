@@ -37,19 +37,13 @@ export default function App() {
   }, []);
 
   return (
-
     <>
-
-
       <Menu menuOpen={setOpen} open={open} setOpenModal={setOpenModal} />
       <div className="container">
-
         <MenuLateral open={open} turmas={disciplinas} />
 
         {disciplinas.length > 0 ? (
-
           <div className="containerCards">
-
             {disciplinas.map(
               ({ id, titulo, professor, fotoCapa, fotoProfessor, corIcon }) => (
                 <Card
@@ -63,23 +57,19 @@ export default function App() {
               )
             )}
             <ButtonAdd />
-
           </div>
-
         ) : (
           <div className="mensagemSmTurma">
             <img
+              className="gifNotFound"
               src="https://media0.giphy.com/avatars/404academy/kGwR3uDrUKPI.gif"
               alt=""
             />
             <p className="mensagem">Nenhuma turma encontrada</p>
           </div>
         )}
-
-
       </div>
       {openModal && <Modal setOpenModal={setOpenModal} />}
-
     </>
   );
 }

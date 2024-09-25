@@ -7,84 +7,102 @@ export default function MenuLateral({ open, turmas }) {
   const [subMenuOpen, setSubMenu] = useState(!menuOpen);
 
   return (
-    <div className={styles.menuLateral} onMouseEnter={() => {setHover(true);setSubMenu(true)}} onMouseLeave={() => {setHover(false); setSubMenu(false)}}>
+    <div
+      className={styles.menuLateral}
+      onMouseEnter={() => {
+        setHover(true);
+        setSubMenu(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+        setSubMenu(false);
+      }}
+    >
       <a href="" className={styles.containerIcon}>
-        <img 
+        <img
           src="./imgs/home.svg"
           alt="home"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
+          className={styles.iconMenu + " " + styles.iconActive}
+        />
+        {menuOpen && <p className={styles.descriptionTurma}>Início</p>}
       </a>
       <a href="" className={styles.containerIcon}>
-        <img 
+        <img
           src="./imgs/calendar.svg"
           alt="calendar"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Agenda</p>}
+          className={styles.iconMenu}
+        />
+        {menuOpen && <p className={styles.descriptionTurma}>Agenda</p>}
       </a>
       <a href="" className={styles.containerIcon}>
-        <img 
+        <img
           src="./imgs/auto_stories.svg"
           alt="auto_stories"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Turmas</p>}
+          className={styles.iconMenu}
+        />
+        {menuOpen && <p className={styles.descriptionTurma}>Turmas</p>}
       </a>
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
-        <img 
-          src="./imgs/group.svg"
-          alt="group"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
+        <img src="./imgs/group.svg" alt="group" className={styles.iconMenu} />
+        {menuOpen && <p className={styles.descriptionTurma}>Estudantes</p>}
       </a>
       <div className={styles.divider}></div>
-      <a className={styles.containerIcon} onClick={() => setSubMenu(!subMenuOpen)} >
-        {subMenuOpen ? 
-          <img 
+      <a
+        className={styles.containerIcon}
+        onClick={() => setSubMenu(!subMenuOpen)}
+      >
+        {subMenuOpen ? (
+          <img
             src="./imgs/arrow_down.svg"
             alt="arrow_down"
-            className={styles.iconSeta} />
-          :
-          <img 
+            className={styles.iconSeta}
+          />
+        ) : (
+          <img
             src="./imgs/arrow_right.svg"
             alt="arrow_right"
-            className={styles.iconSeta} />
-        }
-        <img 
-          src="./imgs/school.svg"
-          alt="school"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Minhas inscrições</p>}
-            
+            className={styles.iconSeta}
+          />
+        )}
+        <img src="./imgs/school.svg" alt="school" className={styles.iconMenu} />
+        {menuOpen && (
+          <p className={styles.descriptionTurma}>Minhas inscrições</p>
+        )}
       </a>
-      {subMenuOpen  && 
+      {subMenuOpen && (
         <>
           <a href="" className={styles.containerIcon}>
-            <img 
+            <img
               src="./imgs/fact_check.svg"
               alt="fact_check"
-              className={styles.iconMenu} />
-              {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
+              className={styles.iconMenu}
+            />
+            {menuOpen && <p className={styles.descriptionTurma}>Pendentes</p>}
           </a>
           {turmas.length > 0 &&
             turmas.map(({ nome, corIcon }, index) => (
               <a href="" className={styles.containerIcon} key={index}>
-                <span className={styles.iconTurma} style={{ backgroundColor: corIcon }}></span>
+                <span
+                  className={styles.iconTurma}
+                  style={{ backgroundColor: corIcon }}
+                ></span>
                 {menuOpen && <p className={styles.descriptionTurma}>{nome}</p>}
               </a>
-            ))
-          }
+            ))}
         </>
-      }
+      )}
       <div className={styles.divider}></div>
       <a href="" className={styles.containerIcon}>
-        <img 
+        <img
           src="./imgs/settings.svg"
           alt="school"
-          className={styles.iconMenu} />
-          {menuOpen && <p className={styles.descriptionTurma}>Turmas Arquivadas</p>}
+          className={styles.iconMenu}
+        />
+        {menuOpen && (
+          <p className={styles.descriptionTurma}>Turmas Arquivadas</p>
+        )}
       </a>
     </div>
-    
   );
 }

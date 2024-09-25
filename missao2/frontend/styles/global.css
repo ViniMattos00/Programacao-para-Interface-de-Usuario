@@ -1,6 +1,7 @@
 :root {
     --color-grey: #5f6358;
-    --color-grey-light: grey;
+    --color-grey-light: rgba(0, 0, 0, .12);
+    --color-blue: rgba(173, 216, 230, 0.4);
     --font: 'Roboto', sans-serif;
 }
 
@@ -27,6 +28,10 @@ body {
 .container {
     position: relative;
     width: 100%;
+}
+
+.gifNotFound{
+    width: 600px;
 }
 
 .mensagemSmTurma {
