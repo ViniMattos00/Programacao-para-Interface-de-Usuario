@@ -3,8 +3,7 @@ FROM node:18
 
 WORKDIR /usr/app
 
-# Copiar os arquivos package.json e yarn.lock
-COPY package.json ./
+COPY package.json .
 
 # Instalar dependências
 RUN npm install
