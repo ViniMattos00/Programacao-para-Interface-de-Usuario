@@ -8,8 +8,8 @@ import Card from "../components/Card";
 export default function App() {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [professores, setProfessores] = useState([]); 
-  const [disciplinas, setDisciplinas] = useState([]); 
+  const [professores, setProfessores] = useState([]);
+  const [disciplinas, setDisciplinas] = useState([]);
 
   useEffect(() => {
     const fetchProfessores = async () => {
@@ -22,18 +22,18 @@ export default function App() {
         const disciplinasTransformadas = data.flatMap((professor) =>
           professor.materias.map((materia) => ({
             ...materia,
-            professor: professor.nome, 
-            fotoProfessor: professor.foto // Adicionar a foto do professor
+            professor: professor.nome,
+            fotoProfessor: professor.foto, // Adicionar a foto do professor
           }))
         );
-        setDisciplinas(disciplinasTransformadas); 
+        setDisciplinas(disciplinasTransformadas);
       } catch (error) {
         console.error("Erro ao buscar professores:", error);
       }
     };
 
     fetchProfessores();
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -42,20 +42,25 @@ export default function App() {
         <MenuLateral open={open} turmas={disciplinas} />
         {disciplinas.length > 0 ? (
           <div className="containerCards">
-            {disciplinas.map(({ id, titulo, professor, fotoCapa, fotoProfessor, corIcon }) => (
-              <Card 
-                key={id} 
-                nome={titulo} 
-                descricao={professor} 
-                urlImg={fotoCapa} // Passar a imagem de capa da matéria
-                fotoProfessor={fotoProfessor} // Passar a foto do professor
-                corIcon={corIcon} // Passar a cor do ícone
-              />
-            ))}
+            {disciplinas.map(
+              ({ id, titulo, professor, fotoCapa, fotoProfessor, corIcon }) => (
+                <Card
+                  key={id}
+                  nome={titulo}
+                  descricao={professor}
+                  urlImg={fotoCapa} // Passar a imagem de capa da matéria
+                  fotoProfessor={fotoProfessor} // Passar a foto do professor
+                  corIcon={corIcon} // Passar a cor do ícone
+                />
+              )
+            )}
           </div>
         ) : (
           <div className="mensagemSmTurma">
-            <img src="https://media0.giphy.com/avatars/404academy/kGwR3uDrUKPI.gif" alt="" />
+            <img
+              src="https://media0.giphy.com/avatars/404academy/kGwR3uDrUKPI.gif"
+              alt=""
+            />
             <p className="mensagem">Nenhuma turma encontrada</p>
           </div>
         )}
