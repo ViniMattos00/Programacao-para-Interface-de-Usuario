@@ -36,6 +36,21 @@ def get_turmas():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
+@app.route('/receive_data', methods=['POST'])
+def receive_data():
+    try:
+        data = request.get_json()
+        
+        # Gerar um nome de arquivo único para evitar sobrescrita
+        unique_filename = f"{uuid.uuid4()}.json"
+        file_path = os.path.join(new_classes_folder, unique_filename)
+        
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+        
+        # Retornar uma resposta de sucesso
+        return jsonify({'message': 'Dados recebidos e salvos com sucesso!', 'filename': unique_filename}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 if __name__ == '__main__':
     app.run(debug=True)
