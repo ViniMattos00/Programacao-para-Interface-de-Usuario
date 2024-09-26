@@ -44,24 +44,85 @@ def get_turmas():
         return jsonify({'error': str(e)}), 500
 
 
+# @app.route('/receive_data', methods=['POST'])
+# def receive_data():
+#     try:
+#         # Receber o JSON enviado na requisição POST
+#         #data = request.get_json()
+
+#         try:
+#         # Abrir o arquivo JSON e carregá-lo
+#             with open(json_file, 'r') as file:
+#                 data = json.load(file)
+#                 data = data + data
+#             # Retornar o conteúdo como JSON
+#             #return jsonify(data), 200
+#         except Exception as e:
+#             return jsonify({'error': str(e)}), 500
+
+#         # Gerar um nome de arquivo único usando UUID
+#         unique_filename = f"{uuid.uuid4()}.json"
+#         #file_path = os.path.join(new_classes_folder, unique_filename)        
+#         file_path = os.path.join(json_folder, 'classes.json')        
+#         # Salvar os dados no arquivo
+#         with open(file_path, 'w') as file:
+#             json.dump(data, file, indent=4)
+        
+       
+#         # Retornar uma resposta de sucesso
+#         #return jsonify({'message': 'Dados recebidos e salvos com sucesso!', 'filename': unique_filename, 'directory' : new_classes_folder}), 200
+#         return jsonify({'message': 'Dados recebidos e salvos com sucesso!', 'filename': 'turmas.json', 'directory' : json_folder}), 200
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
+
 @app.route('/receive_data', methods=['POST'])
 def receive_data():
     try:
-        # Receber o JSON enviado na requisição POST
-        data = request.get_json()
+        # Open the JSON file and load it
+        try:
+            with open(json_file, 'r') as file:
+                data = json.load(file)
+        except Exception as e:
+            return jsonify({'error': f'Error reading JSON file: {str(e)}'}), 500
 
-        # Gerar um nome de arquivo único usando UUID
-        unique_filename = f"{uuid.uuid4()}.json"
-        file_path = os.path.join(new_classes_folder, unique_filename)
-        
-        # Salvar os dados no arquivo
-        with open(file_path, 'w') as file:
-            json.dump(data, file, indent=4)
-        
-        # Retornar uma resposta de sucesso
-        return jsonify({'message': 'Dados recebidos e salvos com sucesso!', 'filename': unique_filename}), 200
+        # Check if there are any professors
+        if len(data) == 0:
+            return jsonify({'error': 'No professors found in the JSON file'}), 400
+
+        # Get the last professor
+        last_professor = data[-1]
+
+        # Synthetic new class data to be added
+        new_class = {
+            "id": str(len(last_professor['materias']) + 1),  # Automatically increment ID
+            "titulo": "Introdução à Inteligência Artificial",
+            "fotoCapa": "https://example.com/img.jpg",
+            "corIcon": "#ff00ff"
+        }
+
+        # Add the new class to the last professor's 'materias'
+        if 'materias' in last_professor:
+            last_professor['materias'].append(new_class)
+        else:
+            last_professor['materias'] = [new_class]
+
+        # Save the updated JSON data back to the file
+        try:
+            with open(json_file, 'w') as file:
+                json.dump(data, file, indent=4)
+        except Exception as e:
+            return jsonify({'error': f'Error writing to JSON file: {str(e)}'}), 500
+
+        # Return a success message
+        return jsonify({
+            'message': 'Synthetic class added successfully!',
+            'professor': last_professor['nome'],
+            'new_class': new_class
+        }), 200
+
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 
 if __name__ == '__main__':
